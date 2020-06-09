@@ -25,7 +25,7 @@ public class maxSubtreeNode {
     @Test
     public void test() {
 
-        TreeNode root = TreeNode.createTree(1, -2, 3, 6, 5, -6, 2);
+        TreeNode root = TreeNode.createTree(new Integer[]{1, -2, 3, 6, 5, -6, 2});
         TreeNode.visualize(root);
         TreeNode maxNode = maxSubtreeNode(root);
         TreeNode.visualize(maxNode);

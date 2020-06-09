@@ -62,7 +62,7 @@ public class L314_verticalOrderTraversal {
 
     @Test
     public void test() {
-        TreeNode root = TreeNode.createTree(3,9,8,4,0,1,7,null,null,null,2,5);
+        TreeNode root = TreeNode.createTree(new Integer[]{3,9,8,4,0,1,7,null,null,null,2,5});
         TreeNode.visualize(root);
         System.out.println(verticalOrder(root));
     }
