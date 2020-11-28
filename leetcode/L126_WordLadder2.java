@@ -51,8 +51,6 @@ public class L126_WordLadder2 {
                                 queue.offer(next);
                             }
                         }
-
-
                     }
                     //change back the character
                     currentChars[i] = curC;
@@ -69,8 +67,6 @@ public class L126_WordLadder2 {
 
         }
         return res;
-
-
     }
 
     private void search(List<List<String>> res, List<String> curPath, String cur, String end, Map<String, List<String>> graph) {

@@ -37,7 +37,9 @@ public class L79_WordSearch {
     @Test
     public void test() {
         char a ='a';
-        System.out.println(a ^ 256);
-        System.out.println(a & 256);
+        System.out.println(Integer.valueOf(a));
+        char b = 'b';
+        System.out.println(97 ^ 256 ^ 256);
+        //System.out.println(a & 256);
     }
 }

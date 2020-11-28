@@ -20,11 +20,11 @@ public class L235_LCABST {
 
 
     public static void main(String[] args) {
-//        TreeNode root = TreeNode.createTree(6,2,8,0,4,7,9,null,null,3,5);
-//        TreeNode.visualize(root);
-//        TreeNode res = lowestCommonAncestor(root, new TreeNode(0), new TreeNode(3));
-//
-//        System.out.println(res.val);
+        TreeNode root = TreeNode.createTree(new Integer[]{6,2,8,0,4,7,9,null,null,3,5});
+        TreeNode.visualize(root);
+        TreeNode res = lowestCommonAncestor(root, new TreeNode(0), new TreeNode(3));
+
+        System.out.println(res.val);
 
     }
 }

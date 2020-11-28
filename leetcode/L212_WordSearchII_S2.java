@@ -30,6 +30,7 @@ public class L212_WordSearchII_S2 {
             p.word = null;     // de-duplicate
         }
 
+        // mark it as visited
         board[i][j] = '#';
         if (i > 0) dfs(board, i - 1, j ,p, res);
         if (j > 0) dfs(board, i, j - 1, p, res);

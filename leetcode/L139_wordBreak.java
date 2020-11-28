@@ -99,10 +99,10 @@ public class L139_wordBreak {
         boolean[] dp = new boolean[s.length() + 1];
         dp[0] = true;
 
-        for (int i = 1; i <= s.length(); i++) {
-            for (int j = 0; j < i; j++) {
-                if (dp[j] && wordDict.contains(s.substring(j, i))) {
-                    dp[i] = true;
+        for (int end = 1; end <= s.length(); end++) {
+            for (int start = 0; start < end; start++) {
+                if (dp[start] && wordDict.contains(s.substring(start, end))) {
+                    dp[end] = true;
                     break;
                 }
             }

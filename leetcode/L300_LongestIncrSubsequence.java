@@ -89,7 +89,7 @@ public class L300_LongestIncrSubsequence {
     }
     @Test
     public void test() {
-        int[] nums = {10, 9 ,2 ,5,3,4};
+        int[] nums = {3, 1, 5, 2, 6, 4, 9, 10, 7};
         System.out.println(lengthOfLIS(nums));
     }
 }

@@ -1,6 +1,5 @@
 package OOD.Elevator;
 
-import com.oracle.tools.packager.Log;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -127,10 +126,10 @@ public class Elevator {
         }
         final int requestLevel = request.getLevel();
         if (requestLevel < 1 || requestLevel > MAX_FLOOR) {
-            Log.info("Elevator: This request level is out of range");
+            //Log.info("Elevator: This request level is out of range");
             return false;
         } else if (requestLevel == currentLevel || upTasks.contains(requestLevel) || downTasks.contains(requestLevel)) {
-            Log.info("Elevator: This request is duplicated");
+            //Log.info("Elevator: This request is duplicated");
             return false;
         }
         return true;

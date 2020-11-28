@@ -60,7 +60,6 @@ public class L41_FIrstMissingPositive {
             if (nums[i] == len) containsLenNumber = true;
             if ((nums[i] <= 0) || (nums[i] >= len))
                 nums[i] = 1;
-
         }
 
         if (!contains1) return 1;
@@ -84,7 +83,7 @@ public class L41_FIrstMissingPositive {
 
     @Test
     public void test() {
-        int[] test = {2, 1};
+        int[] test = {3, 4, -1 ,1 , -2};
         System.out.println(firstMissingPositive2(test));
 
     }

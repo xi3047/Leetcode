@@ -1,6 +1,5 @@
 package leetcode;
 
-import com.sun.xml.internal.bind.v2.model.annotation.Quick;
 
 import java.util.Arrays;
 
@@ -18,15 +17,15 @@ public class QuickSort {
     }
     public int partition(int[] array, int start, int end) {
         int pivot = array[end];
-        int pIndex = start;
+        int cur = start;
         for (int i = start ; i < end; i++) {
             if (array[i] <= pivot) {
-                swap(array, pIndex, i);
-                pIndex++;
+                swap(array, cur, i);
+                cur++;
             }
         }
-        swap(array,pIndex,end);
-        return pIndex;
+        swap(array,cur,end);
+        return cur;
     }
 
     private void swap (int[] array, int i, int j) {

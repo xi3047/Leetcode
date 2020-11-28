@@ -34,4 +34,16 @@ public class L130_surroundedRegions {
         dfs(board, i, j - 1);
         dfs(board, i, j + 1);
     }
+
+    public static void main(String[] args) {
+        L130_surroundedRegions solution = new L130_surroundedRegions();
+        char[][] board = {{'X','O','X','O','X','O'},{'O','X','O','X','O','X'},{'X','O','X','O','X','O'},{'O','X','O','X','O','X'}};
+        solution.solve(board);
+        for (char[] line : board) {
+            for (char c : line) {
+                System.out.print(c);
+            }
+            System.out.println();
+        }
+    }
 }

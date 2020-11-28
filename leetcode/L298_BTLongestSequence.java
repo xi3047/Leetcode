@@ -1,6 +1,5 @@
 package leetcode;
 
-import com.sun.tools.hat.internal.model.Root;
 
 /*
     @author: Xi Zhang

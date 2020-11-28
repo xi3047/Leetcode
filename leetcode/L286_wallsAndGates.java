@@ -4,7 +4,7 @@ import java.util.*;
 
 public class L286_wallsAndGates {
     public void wallsAndGates(int[][] rooms) {
-        if (rooms == null || rooms.length == 0 || rooms[0].length ==0 || rooms[0].length == 0) return;
+        if (rooms == null || rooms.length == 0 || rooms[0] == null || rooms[0].length == 0) return;
         Queue<int[]> queue = new LinkedList<>();
         int row = rooms.length;
         int col = rooms[0].length;
@@ -50,8 +50,8 @@ public class L286_wallsAndGates {
         rooms[i][j] = len;
         dfs(rooms, i + 1, j, len + 1);
         dfs(rooms, i - 1, j, len + 1);
-        dfs(rooms, i, j + 1, len);
-        dfs(rooms, i, j - 1, len);
+        dfs(rooms, i, j + 1, len + 1);
+        dfs(rooms, i, j - 1, len + 1);
     }
 
 
