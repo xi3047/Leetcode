@@ -37,7 +37,7 @@ public class L221_MaximalSquare {
 
     /*
     Create extra rol and col,
-    so need to process first row and col individually
+    so no need to process first row and col individually
      */
     public int maximalSquare2(char[][] matrix) {
         if(matrix.length == 0) return 0;
