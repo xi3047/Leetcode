@@ -46,4 +46,12 @@ public class L122_BuySellStock2 {
         }
         return sold;
     }
+
+
+
+    public static void main(String[] args) {
+        int[] prices = {7, 1, 5, 3, 6, 4};
+        L122_BuySellStock2 solution = new L122_BuySellStock2();
+        System.out.println(solution.maxProfitS(prices));
+    }
 }
