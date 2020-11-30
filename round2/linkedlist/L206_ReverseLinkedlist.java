@@ -1,6 +1,6 @@
 package round2.linkedlist;
 
-import leetcode.ListNode;
+import round1.ListNode;
 
 /**
  * @author Xi Zhang

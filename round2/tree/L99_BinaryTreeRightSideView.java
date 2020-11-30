@@ -1,5 +1,5 @@
 package round2.tree;
-import leetcode.TreeNode;
+import round1.TreeNode;
 
 import java.util.*;
 /**

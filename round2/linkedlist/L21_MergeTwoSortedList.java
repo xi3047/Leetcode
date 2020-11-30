@@ -1,6 +1,6 @@
 package round2.linkedlist;
 
-import leetcode.ListNode;
+import round1.ListNode;
 import org.junit.Test;
 
 public class L21_MergeTwoSortedList {

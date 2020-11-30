@@ -9,7 +9,7 @@ package round2.dp;
  */
 public class L5_LongestPalindromicSubstring {
     // 2 pointer solution, Time O(n^2), Space O(1)
-    // Idea: extend to left and right from every position in the string, save the max substring
+    // Idea: extend to left and right from every position in the round1_misc.string, save the max substring
     public static String LPS(String s) {
         String max = "";
         for (int i = 0; i < s.length(); i++) {
@@ -39,7 +39,7 @@ public class L5_LongestPalindromicSubstring {
         boolean[][] dp = new boolean[n][n];
         // dp[i][j] indicates whether substring s starting at index i and ending at j is palindrome
 
-        for(int i = n-1; i >= 0; i--) { // keep increasing the possible palindrome string
+        for(int i = n-1; i >= 0; i--) { // keep increasing the possible palindrome round1_misc.string
             for(int j = i; j < n; j++) { // find the max palindrome within this window of (i,j)
 
                 //check if substring between (i,j) is palindrome
@@ -48,7 +48,7 @@ public class L5_LongestPalindromicSubstring {
                         ( j-i < 3  // if window is less than or equal to 3, just end chars should match
                                 || dp[i+1][j-1]  ); // if window is > 3, substring (i+1, j-1) should be palindrome too
 
-                //update max palindrome string
+                //update max palindrome round1_misc.string
                 if(dp[i][j] && (j-i+1 > maxLen)) {
                     palindromeStartsAt = i;
                     maxLen = j-i+1;

@@ -1,6 +1,6 @@
 package round2.bdfs;
 
-import leetcode.TreeNode;
+import round1.TreeNode;
 
 import java.util.*;
 

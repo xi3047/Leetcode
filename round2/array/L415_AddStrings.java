@@ -5,7 +5,7 @@ package round2.array;
  * @date 11/27/2020 7:51 PM
  * @topic round2.array
  * @link https://leetcode.com/problems/add-strings/
- * @description Given two non-negative integers num1 and num2 represented as string, return the sum of num1 and num2.
+ * @description Given two non-negative integers num1 and num2 represented as round1_misc.string, return the sum of num1 and num2.
  *
  * Note:
  *
