@@ -23,4 +23,8 @@ public class L8_StringToInteger {
     public void test() {
         System.out.println(myAtoi("    -2147483649"));
     }
+
+    public static void main(String[] args) {
+        System.out.println("Fdsf");
+    }
 }

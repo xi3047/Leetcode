@@ -26,6 +26,7 @@ public class L1_twoSum {
             System.out.println(n);
         }
         // adding something
+        System.out.println("Motherfucker");
     }
 
 
