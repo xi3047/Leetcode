@@ -14,26 +14,23 @@ public class L206_ReverseLinkedlist {
      * Iterative
      */
     public ListNode reverseList(ListNode head) {
-        if (head == null) return head;
-        ListNode cur = head;
-        ListNode prev = null;
-        while (cur.next != null) {
-            ListNode next = cur.next;
-            cur.next = prev;
-            prev = cur;
-            cur = next;
+        ListNode newHead = null;
+        while (head != null) {
+            ListNode next = head.next;
+            head.next = newHead;
+            newHead = head;
+            head = next;
         }
-        cur.next = prev;
-        return cur;
+        return newHead;
     }
     /**
      * Recursive
      */
     public ListNode reverse(ListNode head) {
         if (head == null || head.next == null) return head;
-        ListNode p = reverse(head.next);
+        ListNode last = reverse(head.next);
         head.next.next = head;
         head.next = null;
-        return p;
+        return last;
     }
 }

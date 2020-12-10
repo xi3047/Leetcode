@@ -1,26 +1,16 @@
-package round1;
-/*
-215. Kth Largest Element in an Array
-
-Find the kth largest element in an unsorted array. Note that it is the kth largest element in the sorted order, not the kth distinct element.
-
-Example 1:
-
-Input: [3,2,1,5,6,4] and k = 2
-Output: 5
-Example 2:
-
-Input: [3,2,3,1,2,4,5,5,6] and k = 4
-Output: 4
-Note:
-You may assume k is always valid, 1 ≤ k ≤ array's length.
- */
-import org.junit.Test;
+package round2.heap_stack;
 
 import java.util.Arrays;
 import java.util.PriorityQueue;
 import java.util.Random;
 
+/**
+ * @author Xi Zhang
+ * @date 11/30/2020 5:52 PM
+ * @topic round2.heap
+ * @link
+ * @description
+ */
 public class L215_findKthLargest {
     // Solution 1: Divide and Conquer -- QuickSelect
     // Time Complexity: O(n)
@@ -118,11 +108,5 @@ public class L215_findKthLargest {
         if (split == k) return nums[split];
         else if (split > k) return quickSelect(nums, 0, split - 1, k);
         else return quickSelect(nums, split + 1, end, k);
-    }
-
-    @Test
-    public void test() {
-        int [] n = {50, 20, 10, 60, 40, 30};
-        System.out.println(findKthLargestQ(n, 5));
     }
 }

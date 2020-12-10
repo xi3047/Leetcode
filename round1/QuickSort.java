@@ -10,22 +10,22 @@ public class QuickSort {
     }
     public void quickSort(int[] array, int start, int end) {
         if (start < end) {
-            int pIndex = partition(array, start, end);
-            quickSort(array, start, pIndex-1);
-            quickSort(array, pIndex + 1, end);
+            int split = partition(array, start, end);
+            quickSort(array, start, split-1);
+            quickSort(array, split + 1, end);
         }
     }
     public int partition(int[] array, int start, int end) {
         int pivot = array[end];
-        int cur = start;
+        int split = start;
         for (int i = start ; i < end; i++) {
             if (array[i] <= pivot) {
-                swap(array, cur, i);
-                cur++;
+                swap(array, split, i);
+                split++;
             }
         }
-        swap(array,cur,end);
-        return cur;
+        swap(array,split,end);
+        return split;
     }
 
     private void swap (int[] array, int i, int j) {
