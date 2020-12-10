@@ -1,4 +1,4 @@
-package round2.divideConquer;
+package round2.sort;
 
 import java.util.ArrayList;
 import java.util.List;

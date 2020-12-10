@@ -7,7 +7,6 @@ public class UnionFind {
         int val;
         Node parent;
         int size;
-        // why is it size not rank. wtf is going on what the hell is going on, unfortunately the. I said all too late
         Node(int val) {
             this.val = val;
             this.parent = this;
