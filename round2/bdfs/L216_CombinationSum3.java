@@ -1,5 +1,8 @@
 package round2.bdfs;
 
+import org.junit.Test;
+
+import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -49,6 +52,29 @@ import java.util.List;
  */
 public class L216_CombinationSum3 {
     public List<List<Integer>> combinationSum3(int k, int n) {
-        return null;
+        List<List<Integer>> res = new LinkedList<>();
+        List<Integer> path = new LinkedList<>();
+        backtrack(res, path, k, n, 1);
+        return res;
+    }
+
+    private void backtrack(List<List<Integer>> res, List<Integer> path, int k, int n, int start) {
+        if (n < 0 ) {
+            return;
+        }
+        if (path.size() == k) {
+            if (n == 0) res.add(new LinkedList<>(path));
+            else return;
+        }
+        for (int i = start; i < 10; i++) {
+            path.add(i);
+            backtrack(res, path, k, n - i, i + 1);
+            path.remove(path.size() - 1);
+        }
+    }
+
+    @Test
+    public void test() {
+        System.out.println(combinationSum3(3, 9));
     }
 }

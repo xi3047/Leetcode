@@ -11,6 +11,8 @@ import round1.TreeNode;
  */
 public class L671_SecondMaxNodeBinaryTree {
     public int findSecondMinimumValue(TreeNode root) {
+        // return -1 when the current node is the same as root
+        // or when this node has no children
         if (root == null || root.left == null) return -1;
         int left = root.left.val;
         int right = root.right.val;
