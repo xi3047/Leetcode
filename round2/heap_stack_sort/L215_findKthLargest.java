@@ -1,4 +1,4 @@
-package round2.heap_stack;
+package round2.heap_stack_sort;
 
 import java.util.Arrays;
 import java.util.PriorityQueue;
@@ -97,6 +97,7 @@ public class L215_findKthLargest {
     }
     private int quickSelect(int[] nums, int start, int end, int k) {
         int pivot = nums[end];
+        // all numbers on left of spit are bigger than pivot number
         int split = start;
         for (int i = start; i < end; i++) {
             if(nums[i] >= pivot) {
