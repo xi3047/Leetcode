@@ -1,8 +1,8 @@
 package round2.bdfs;
 
-import java.util.ArrayDeque;
-import java.util.Deque;
+import java.util.LinkedList;
 import java.util.List;
+import java.util.Queue;
 
 /**
  * @author Xi Zhang
@@ -40,31 +40,34 @@ public class L364_NestedListWeightSum2 {
         return max;
     }
 
-    /**
-     * BFS
-     */
     public int depthSumInverseBFS(List<NestedInteger> nestedList) {
-        int prevSum = 0, totalSum = 0;
-        Deque<NestedInteger> queue = new ArrayDeque();
-        for (NestedInteger ni : nestedList) {
-            queue.offerLast(ni);
+        Queue<NestedInteger> queue = new LinkedList<>();
+        for (NestedInteger nI: nestedList) {
+            queue.offer(nI);
         }
-
+        int prevUnweighted = 0;
+        int totalSum = 0;
         while (!queue.isEmpty()) {
-            int size = queue.size(), levelSum = 0;
-            for (int i = 0; i < size; i++) {
-                NestedInteger current = queue.pollFirst();
-                if (current.isInteger()) {
-                    levelSum += current.getInteger();
+            int size = queue.size();
+            // only keep track of sum of current level numbers
+            int levelSum = 0;
+            while (size -- > 0) {
+                NestedInteger cur = queue.poll();
+                if (cur.isInteger()) {
+                    levelSum += cur.getInteger();
                 } else {
-                    for (NestedInteger ni: current.getList()) {
-                        queue.offerLast(ni);
+                    for (NestedInteger ni: cur.getList()) {
+                        queue.offer(ni);
                     }
                 }
             }
-            prevSum += levelSum;
-            totalSum += prevSum;
+            // previous unweighted means one section
+            prevUnweighted = prevUnweighted + levelSum;
+            // whenever we go down a deeper level, we add previous unweighted/single section to the total sum
+            totalSum = totalSum + prevUnweighted;
         }
         return totalSum;
     }
+
+
 }

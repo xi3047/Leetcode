@@ -9,7 +9,7 @@ import java.util.List;
  *
  * https://stackoverflow.com/questions/4965335/how-to-print-binary-tree-diagram
  **/
-class BinaryTreePrinter {
+public class BinaryTreePrinter {
 
     public static <T extends Comparable<?>> void printNode(Node<T> root) {
 
