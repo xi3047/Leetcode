@@ -91,7 +91,9 @@ public class L215_findKthLargest {
         System.out.print(Arrays.toString(arr));
     }
 
-
+    /**
+     * Quick Select Solution
+     */
     public int findKthLargestQ(int[] nums, int k) {
         return quickSelect(nums, 0, nums.length - 1, k - 1);
     }
