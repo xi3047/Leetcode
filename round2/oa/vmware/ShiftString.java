@@ -1,4 +1,4 @@
-package round2.oa;
+package round2.oa.vmware;
 
 /**
  * @author Xi Zhang
@@ -6,6 +6,7 @@ package round2.oa;
  * @topic round2.oa
  * @link
  * @description
+ * VMware OA
  */
 public class ShiftString {
     public static String getShiftedString(String s, int leftShift, int rightShift) {

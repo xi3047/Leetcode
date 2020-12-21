@@ -1,4 +1,4 @@
-package round2.oa;
+package round2.oa.vmware;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -9,6 +9,7 @@ import java.util.Map;
  * @topic round2.oa
  * @link
  * @description
+ * VMWare OA
  */
 public class PerfectTeam {
     public static int perfectTeam(String s) {

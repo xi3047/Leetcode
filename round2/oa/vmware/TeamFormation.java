@@ -1,4 +1,4 @@
-package round2.oa;
+package round2.oa.vmware;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -9,6 +9,7 @@ import java.util.List;
  * @topic round2.oa
  * @link
  * @description
+ * VMWare
  */
 public class TeamFormation {
     public static int teamFormation(int[] players, int k, int low, int high) {

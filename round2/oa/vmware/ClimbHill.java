@@ -1,4 +1,4 @@
-package round2.oa;
+package round2.oa.vmware;
 
 import org.junit.Test;
 
