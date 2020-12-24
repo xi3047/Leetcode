@@ -1,15 +1,13 @@
-package round1;
-/*
-    @author: Xi Zhang
-    @date:   2019-02-28
-    @time:   17:41
+package round2.bitsMath;
 
-    Reverse an integer
-    For example 123 -> 321,  120 -> 21,  -213 -> -312
+/**
+ * @author Xi Zhang
+ * @date 12/21/2020 10:59 AM
+ * @topic round2.bitsMath
+ * @link https://leetcode.com/problems/reverse-integer/
+ * @description
  */
-import org.junit.Test;
-
-public class L7_reverseInteger {
+public class L7_ReverseInteger {
     public int reverse(int x) {
         int reversed = 0;
 
@@ -19,6 +17,8 @@ public class L7_reverseInteger {
 
 
             // check for integer overflow, if the input is -2^31, reversed * 10 / 10 will not be equal to reversed
+            // for example, when reversing Integer.MAX_VALUE, 2,147,483,647
+            // in the last iteration, temp will be a negative int cuz of overflow
             if (temp / 10 != reversed) {
                 return 0;
             }
@@ -27,10 +27,5 @@ public class L7_reverseInteger {
         }
 
         return reversed;
-    }
-
-    @Test
-    public void test() {
-
     }
 }

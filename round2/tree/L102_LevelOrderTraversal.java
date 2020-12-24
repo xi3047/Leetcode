@@ -1,7 +1,9 @@
 package round2.tree;
 
+import org.junit.Test;
 import round1.TreeNode;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
@@ -31,5 +33,29 @@ public class L102_LevelOrderTraversal {
             res.add(level);
         }
         return res;
+    }
+
+    public List<List<Integer>> levelOrderDFS(TreeNode root) {
+        List<List<Integer>> res = new ArrayList<>();
+        dfs(res, root, 0);
+        return res;
+    }
+
+    private void dfs(List<List<Integer>> res, TreeNode root, int level) {
+        if (root == null) return;
+        if (res.size() == level) {
+            res.add(level, new LinkedList<>());
+        }
+        res.get(level).add(root.val);
+        dfs(res, root.left, level + 1);
+        dfs(res, root.right, level + 1);
+    }
+
+    @Test
+    public void test() {
+        List<List<Integer>> res = new LinkedList<>();
+        System.out.println(res.size() == 0);
+        res.add(0, new LinkedList<>());
+        System.out.println(res.size());
     }
 }
