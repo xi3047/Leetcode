@@ -1,4 +1,4 @@
-package round2.array;
+package round2.matrix;
 
 import java.util.HashMap;
 import java.util.List;

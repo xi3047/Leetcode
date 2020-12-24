@@ -1,4 +1,4 @@
-package round2.array;
+package round2.matrix;
 
 /**
  * @author Xi Zhang

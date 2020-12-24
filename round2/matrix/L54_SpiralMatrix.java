@@ -1,4 +1,4 @@
-package round2.array;
+package round2.matrix;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -6,7 +6,7 @@ import java.util.List;
 /**
  * @author Xi Zhang
  * @date 11/24/2020 7:14 PM
- * @topic round2.array
+ * @topic round2.matrix
  * @link https://leetcode.com/problems/spiral-matrix/
  * @description
  */

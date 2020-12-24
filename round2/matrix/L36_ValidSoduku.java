@@ -1,4 +1,4 @@
-package round2.array;
+package round2.matrix;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -6,7 +6,7 @@ import java.util.Set;
 /**
  * @author Xi Zhang
  * @date 12/17/2020 5:38 PM
- * @topic round2.array
+ * @topic round2.matrix
  * @link https://leetcode.com/problems/valid-sudoku
  * @description
  */

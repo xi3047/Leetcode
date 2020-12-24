@@ -1,9 +1,9 @@
-package round2.array;
+package round2.matrix;
 
 /**
  * @author Xi Zhang
  * @date 11/27/2020 9:41 PM
- * @topic round2.array
+ * @topic round2.matrix
  * @link
  * @description
  */

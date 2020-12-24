@@ -1,9 +1,9 @@
-package round2.array;
+package round2.matrix;
 
 /**
  * @author Xi Zhang
  * @date 12/20/2020 12:57 AM
- * @topic round2.array
+ * @topic round2.matrix
  * @link https://leetcode.com/problems/set-matrix-zeroes/
  * @description https://leetcode.wang/leetcode-73-Set-Matrix-Zeroes.html
  */

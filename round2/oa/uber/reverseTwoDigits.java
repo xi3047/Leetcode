@@ -7,25 +7,26 @@ package round2.oa.uber;
  * @link
  * @description
  * uber oa
+ * 0 1 2
+ * 1 2 3 4
+ *
+ *
+ * 1 2 3 4 5
  */
 public class reverseTwoDigits {
     public static int reverseTwoDigits(int num) {
-        int length = 0;
-        long temp = 1;
-        while (temp <= num) {
-            length++;
-            temp *= 10;
-        }
         int res = 0;
-        int n = length / 2;
-        while (n-- > 0) {
-            int y = num % 10;
-            int x = (num / 10) % 10;
-            res = res * 10 + y;
-            res = res * 10 + x;
-            num = num /100;
+        char [] chars = String.valueOf(num).toCharArray();
+        int i = 0;
+        while (i < chars.length - 1) {
+            int j = i + 1;
+            char temp = chars[i];
+            chars[i] = chars[j];
+            chars[j] = temp;
+            i  = i + 2;
         }
-        return res;
+
+        return Integer.parseInt(new String(chars));
     }
 
     public static void main(String[] args) {

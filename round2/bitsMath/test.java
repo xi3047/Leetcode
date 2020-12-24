@@ -8,8 +8,20 @@ package round2.bitsMath;
  * @description
  */
 public class test {
+    public static int bracket_match(String bracket_string) {
+        int leftB = 0;
+        int rightB =0;
+        for (char c : bracket_string.toCharArray()){
+            if (c == '(') leftB++;
+            else if (c == ')') {
+                if (leftB > 0) leftB--;
+                else rightB++;
+            }
+        }
+        return leftB + rightB;
+    }
+
     public static void main(String[] args) {
-        int[] arr = new int[2];
-        int[] pair = {arr[0], arr[1]};
+        System.out.println(bracket_match("())"));
     }
 }
