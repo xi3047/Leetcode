@@ -64,7 +64,6 @@ public class L210_CourseSchedule2 {
         for (int i = 0; i < res.size(); i++) {
             arr[i] = res.get(i);
         }
-
         return arr;
     }
 
@@ -149,12 +148,15 @@ public class L210_CourseSchedule2 {
     @Test
     public void test() {
         int[][] courses = {{1, 0}, {2, 0}, {3, 1}, {3, 2}};
-        System.out.println(Arrays.asList(findOrder(4, courses)));
+        int[] res = findOrder(4, courses);
+        for (int i : res) {
+            System.out.print(i +" ");
+        }
     }
 
     @Test
     public void test2() {
-        int[][] courses = {{1,0}, {3, 1}} ;
+        int[][] courses = {{1, 0}, {2, 0}, {3, 1}, {3, 2}};
         int [] res = findOrderBFS(2, courses);
         for (int i : res) {
             System.out.print(i + ", ");

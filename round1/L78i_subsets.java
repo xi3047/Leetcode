@@ -107,8 +107,8 @@ public class L78i_subsets {
 
     @Test
     public void test () {
-        int[] nums = new int[]{1,2,3,4};
-        List<List<Integer>> subsets = subsets4 (nums);
+        int[] nums = new int[]{1,2,3};
+        List<List<Integer>> subsets = subsets1 (nums);
         int counter = 0;
         for (List<Integer> s :subsets) {
             System.out.println(counter + ":" + s);

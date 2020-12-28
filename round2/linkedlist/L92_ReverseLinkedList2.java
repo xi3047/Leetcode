@@ -4,7 +4,7 @@ import round1.ListNode;
 
 /**
  * @author Xi Zhang
- * @date 11/30/2020 9:15 PM
+ * @date 12/24/2020 11:25 PM
  * @topic round2.linkedlist
  * @link https://leetcode.com/problems/reverse-linked-list-ii/
  * @description
@@ -18,17 +18,27 @@ import round1.ListNode;
  * Output: 1->4->3->2->5->NULL
  */
 public class L92_ReverseLinkedList2 {
+    /**
+     * Solution:
+     * https://leetcode.com/problems/reverse-linked-list-ii/discuss/30666/Simple-Java-solution-with-clear-explanation
+     */
     public ListNode reverseBetween(ListNode head, int m, int n) {
-        ListNode cur = head;
-        return reverse(cur.next);
+        if (head == null) return null;
+        ListNode dummy = new ListNode(0);
+        dummy.next = head;
+        ListNode pre = dummy;
+        for (int i = 0; i < m - 1; i++) {
+            pre = pre.next;
+        }
+        ListNode start = pre.next;
+        ListNode then = start.next;
 
-    }
-
-    public ListNode reverse(ListNode head) {
-        if (head == null || head.next == null) return head;
-        ListNode p = reverse(head.next);
-        head.next.next = head;
-        head.next = null;
-        return p;
+        for (int i = 0; i < n - m; i ++) {
+            start.next = then.next;
+            then.next = pre.next;
+            pre.next = then;
+            then = start.next;
+        }
+        return dummy.next;
     }
 }
