@@ -93,7 +93,7 @@ public class L227_BasicCalculatorII {
     @Test
     public void test () {
         String s = "4+6/3*2";
-        System.out.println(calculate2(s));
+        System.out.println(calculate(s));
     }
 
 }

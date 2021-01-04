@@ -22,7 +22,7 @@ public class RobinhoodStock {
             this.share = share;
         }
     }
-
+    // maxHeap
     private class BidComparator implements Comparator<Node> {
         @Override
         public int compare(Node a, Node b) {
@@ -30,6 +30,7 @@ public class RobinhoodStock {
         }
     }
 
+    // minHeap
     private class AskComparator implements Comparator<Node> {
         @Override
         public int compare(Node a, Node b) {
