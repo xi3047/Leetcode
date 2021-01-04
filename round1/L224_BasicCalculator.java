@@ -71,7 +71,7 @@ public class L224_BasicCalculator {
             if (Character.isDigit(s.charAt(i))) {
                 int sum = s.charAt(i) - '0';
                 while (i + 1 < len && Character.isDigit(s.charAt(i + 1))) {
-                    sum = sum * 10 + s.charAt(i + 1) - '0';
+                    sum = sum * 10 + s.charAt(i + 1) - '0' ;
                     i++;
                 }
                 result += sum * sign;
