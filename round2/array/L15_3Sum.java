@@ -53,7 +53,7 @@ public class L15_3Sum {
         return res;
     }
     void twoSum2(int[] nums, int i, List<List<Integer>> res) {
-        var seen = new HashSet<Integer>();
+        Set<Integer> seen = new HashSet<Integer>();
         for (int j = i + 1; j < nums.length; ++j) {
             int complement = -nums[i] - nums[j];
             if (seen.contains(complement)) {
