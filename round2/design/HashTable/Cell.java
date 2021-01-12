@@ -23,7 +23,16 @@ public class Cell<K, V> {
 
     @Override
     public boolean equals(Object o) {
-        return false;
+        if (o instanceof Cell<?, ?>) {
+            Cell<K,V> that = (Cell<K, V>) o;
+            if (key == null) {
+                return that.key == null;
+            } else {
+                return key.equals(that.key);
+            }
+        } else {
+            return false;
+        }
     }
 
     public boolean keyEquals(K key) {
@@ -32,5 +41,11 @@ public class Cell<K, V> {
         } else {
             return this.key.equals(key);
         }
+    }
+    public K getKey() {
+        return this.key;
+    }
+    public V getValue() {
+        return this.value;
     }
 }
