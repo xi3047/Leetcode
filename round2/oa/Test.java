@@ -54,6 +54,8 @@ public class Test {
     public static void main(String[] args)
     {
 //        System.out.println(mergeStrings("super", "tower"));
-        System.out.println("flow".indexOf("eraerasdf"));
+//        System.out.println("flow".indexOf("eraerasdf"));
+
+        System.out.println(23 | 1);
     }
 }

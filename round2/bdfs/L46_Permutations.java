@@ -1,6 +1,7 @@
 package round2.bdfs;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -34,22 +35,22 @@ public class L46_Permutations {
     // Solution 2: DFS with two branches
     public List<List<Integer>> permute2(int[] nums) {
         List<List<Integer>> res = new ArrayList<>();
-        backtrack2(nums, 0, res);
+        List<Integer> nums_list = new ArrayList<>();
+        for (int number : nums) {
+            nums_list.add(number);
+        }
+        backtrack2(nums_list, 0, res);
         return res;
     }
-    private void backtrack2(int[] nums, int position, List<List<Integer>> res) {
-        if (position == nums.length - 1) {
-            List<Integer> temp = new ArrayList<>();
-            for (int number : nums) {
-                temp.add(number);
-            }
-            res.add(temp);
+    private void backtrack2(List<Integer> nums, int position, List<List<Integer>> res) {
+        if (position == nums.size() - 1) {
+            res.add(new ArrayList<>(nums));
             return;
         }
-        for (int i = position; i < nums.length; i++) {
-            swapInt(nums, i, position);
+        for (int i = position; i < nums.size(); i++) {
+            Collections.swap(nums, i, position);
             backtrack2(nums, position + 1, res);
-            swapInt(nums, i, position);
+            Collections.swap(nums, i, position);
         }
     }
     private void swapInt(int[] nums, int i, int j) {
