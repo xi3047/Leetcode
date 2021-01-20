@@ -68,7 +68,6 @@ public class L211_AddSearchWord {
                         return true;
                     }
                 }
-
             } else {
                 return node.links[c - 'a'] != null && match(chs, index + 1, node.links[c - 'a']);
             }

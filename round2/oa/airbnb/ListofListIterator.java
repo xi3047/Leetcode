@@ -8,11 +8,15 @@ package round2.oa.airbnb;
  * @description
  */
 
-import java.util.*;
+import org.junit.Test;
 
-import org.junit.*;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Iterator;
+import java.util.List;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 public class ListofListIterator {
     /*
@@ -56,14 +60,13 @@ public class ListofListIterator {
             List<Integer> listToBeRemoved;
             int rowToBeRemoved = row;
             int colToBeRemoved = col;
-            if (col == 0) { // if col is at 0,
+            if (col == 0) { // if col is at 0, we have to current row too
                 rowToBeRemoved--;
                 colToBeRemoved = vec2d.get(rowToBeRemoved).size() - 1;
-                listToBeRemoved = vec2d.get(rowToBeRemoved);
             } else {
                 colToBeRemoved--;
-                listToBeRemoved = vec2d.get(rowToBeRemoved);
             }
+            listToBeRemoved = vec2d.get(rowToBeRemoved);
             listToBeRemoved.remove(colToBeRemoved);
             if (listToBeRemoved.isEmpty()) {
                 vec2d.remove(listToBeRemoved);

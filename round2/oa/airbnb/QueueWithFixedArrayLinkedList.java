@@ -59,16 +59,17 @@ public class QueueWithFixedArrayLinkedList {
         public Integer poll() {
             // there are no size, we return null
             if (count == 0) return null;
+            Integer ret = headArray.array[head];
             // if we are at the end of our first array, we don't need it anymore, we can remove it
             // also reset head position
-            if (head == FIXED_SIZE) {
+            if (head == FIXED_SIZE - 1) {
                 headArray = headArray.next;
                 head = 0;
             }
 
             // now we can remove the element from the beginning of the first array
             count--;
-            return headArray.array[head++];
+            return ret;
         }
 
 
