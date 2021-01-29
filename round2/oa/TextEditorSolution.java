@@ -4,7 +4,6 @@ import java.util.Arrays;
 import java.util.Stack;
 
 /**
- * @author Xi Zhang
  * @date 12/17/2020 1:02 AM
  * @topic round2.oa
  * @link
@@ -203,10 +202,4 @@ public class TextEditorSolution {
             redoStack.push(this);
         }
     }
-
-
-
-
-
-
 }

@@ -42,9 +42,9 @@ class BoggleGame {
     public static void main(String[] args) {
         BoggleGame sol = new BoggleGame();
         char[][] board = {{'o','a','a','n'},
-                {'e','t','a','e'},
-                {'i','h','k','r'},
-                {'i','f','l','v'}};
+                          {'e','t','a','e'},
+                          {'i','h','k','r'},
+                          {'i','f','l','v'}};
         String[] words = {"oath","ak","klf", "ii", "rena"};
         sol.findWords(board, words);
         System.out.println(sol.max);
@@ -64,16 +64,16 @@ class BoggleGame {
         }
     }
 
-    private void dfs(List<String> list, char[][] board, int i, int j, TrieNode p) {
-        if (!inBound(i, j) || board[i][j] == '#' || p.next[board[i][j] - 'a'] == null) {
+    private void dfs(List<String> list, char[][] board, int i, int j, TrieNode cur) {
+        if (!inBound(i, j) || board[i][j] == '#' || cur.next[board[i][j] - 'a'] == null) {
             return;
         }
         char c = board[i][j];
-        p = p.next[c - 'a'];
+        cur = cur.next[c - 'a'];
         board[i][j] = '#';
-        if (p.word != null) {
-            list.add(p.word);
-            if (max < list.size()) {
+        if (cur.word != null) {
+            list.add(cur.word);
+            if (list.size() > max) {
                 this.max = list.size();
                 this.maxList = new ArrayList<>(list);
             }
@@ -87,7 +87,7 @@ class BoggleGame {
             return;
         }
         for (int k = 0; k < 4; k++) {
-            dfs(list, board,i + dirX[k], j + dirY[k], p);
+            dfs(list, board,i + dirX[k], j + dirY[k], cur);
         }
         board[i][j] = c;
     }

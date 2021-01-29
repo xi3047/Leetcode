@@ -32,23 +32,23 @@ public class L227_BasicCalculator2 {
         Stack<Integer> stack = new Stack<>();
         int res = 0;
         int num = 0;
-        char sign = '+';
+        char lastSign = '+';
         for (int i = 0; i < s.length(); i++) {
             char c = s.charAt(i);
             if (Character.isDigit(c)) {
                 num = num * 10 + (c - '0');
             }
-                if (!Character.isDigit(c) && c != ' ' || i == s.length() - 1) {
-                if (sign == '+') {
+            if (!Character.isDigit(c) && c != ' ' || i == s.length() - 1) {
+                if (lastSign == '+') {
                     stack.push(num);
-                } else if (sign == '-') {
+                } else if (lastSign == '-') {
                     stack.push(-num);
-                } else if (sign == '*') {
+                } else if (lastSign == '*') {
                     stack.push(stack.pop() * num);
-                } else if (sign == '/') {
+                } else if (lastSign == '/') {
                     stack.push(stack.pop() / num);
                 }
-                sign = c;
+                lastSign = c;
                 num = 0;
             }
         }
@@ -60,7 +60,7 @@ public class L227_BasicCalculator2 {
     }
     @Test
     public void test () {
-        String s = "3+2*2";
+        String s = "3+2*2-5/2+2*2";
         System.out.println(calculate(s));
     }
 

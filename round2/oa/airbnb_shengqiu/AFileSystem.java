@@ -15,14 +15,20 @@ Use a hash map to store path and value pair
 class Solution {
     public static void main(String[] args) {
         AFileSystem fileSystem = new AFileSystem();
+
+
+
         System.out.println(fileSystem.create("a", 1));
         System.out.println(fileSystem.create("/a", 1));
         System.out.println(fileSystem.create("/a/b", 2));
         System.out.println(fileSystem.create("/c/b", 3));
-        fileSystem.watch("/a/b", "on path /a/b");
+
         fileSystem.watch("/a", "on path /a");
+        fileSystem.watch("/a/b", "on path /a/b");
         fileSystem.watch("/", "on path /");
-        System.out.println(fileSystem.create("/a/b/c", 2));
+
+        fileSystem.create("/a/b/c", 2);
+        System.out.println(fileSystem.create("/a/b/d", 3));
         System.out.println(fileSystem.get("/a/b/c"));
         System.out.println(fileSystem.get("/a/b/c/d"));
     }

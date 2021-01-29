@@ -26,15 +26,15 @@ Space: O(1)
 class BFindMedianLargeFile {
     public static void main(String[] args) {
         BFindMedianLargeFile sol = new BFindMedianLargeFile();
-        int[] nums = new int[100];
+        int[] nums = new int[10];
         Random random = new Random();
         for (int i = 0; i < nums.length; i++) {
-            nums[i] = random.nextInt(100);
+            nums[i] = random.nextInt(10);
         }
         System.out.println(sol.findMedian(nums));
         Arrays.sort(nums);
-        System.out.println(nums[49]);
-        System.out.println(nums[50]);
+//        System.out.println(nums[49]);
+//        System.out.println(nums[50]);
     }
 
     public double findMedian(int[] nums) {
@@ -52,8 +52,8 @@ class BFindMedianLargeFile {
     }
 
     private double findKthSmallest(int[] nums, int k) {
-        long left = Integer.MIN_VALUE;
-        long right = Integer.MAX_VALUE;
+        long left = -100;
+        long right = 100;
         while (left <= right) {
             int count = 0;
             long res = left;

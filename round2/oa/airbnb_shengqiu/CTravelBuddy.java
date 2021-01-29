@@ -28,7 +28,10 @@ We use a set to store out list, takes O(k)
 for recommend, we use a linked hash set to store the recommend, which takes O(mn)
 */
 public class CTravelBuddy {
+
+    final double THRESHOLD = 0.0001;
     public static void main(String[] args) {
+
         CTravelBuddy sol = new CTravelBuddy();
         List<String> myList = Arrays.asList("A", "B", "C", "D");
         Map<String, List<String>> friendList = new HashMap<>();
@@ -40,7 +43,7 @@ public class CTravelBuddy {
 
         List<Buddy> res = sol.findBuddy(myList, friendList);
         for(Buddy buddy : res) {
-            System.out.print(buddy.name);
+            System.out.print(buddy.name + ": ");
             System.out.println(buddy.similarity);
         }
         List<String> recommend = sol.recommend(myList, friendList, 15);
@@ -61,9 +64,10 @@ public class CTravelBuddy {
                 res.add(new Buddy(friend, similarity));
             }
         }
-        Collections.sort(res, (o1, o2) -> {
-            return Double.compare(o2.similarity, o1.similarity);
-        });
+//        Collections.sort(res, (o1, o2) -> {
+//            return Double.compare(o2.similarity, o1.similarity);
+//        });
+        Collections.sort(res);
         return res;
     }
 
@@ -87,13 +91,24 @@ public class CTravelBuddy {
         return new ArrayList<>(recommend);
     }
 
-    class Buddy {
+    class Buddy implements Comparable<Buddy>{
         String name;
         double similarity;
 
         public Buddy(String name, double similarity) {
             this.name = name;
             this.similarity = similarity;
+        }
+
+        @Override
+        public int compareTo(Buddy other) {
+            if (Math.abs(this.similarity - other.similarity) <= THRESHOLD) {
+                return this.name.compareTo(other.name);
+            } else if (this.similarity < other.similarity) {
+                return 1;
+            } else {
+                return -1;
+            }
         }
     }
 }

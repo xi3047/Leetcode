@@ -1,5 +1,7 @@
 package round2.oa;
 
+import java.util.function.BiConsumer;
+
 /**
  * @author Xi Zhang
  * @date 12/18/2020 8:55 PM
@@ -56,6 +58,18 @@ public class Test {
 //        System.out.println(mergeStrings("super", "tower"));
 //        System.out.println("flow".indexOf("eraerasdf"));
 
-        System.out.println(23 | 1);
+//        System.out.println(23 | 1);
+//        BiConsumer<Integer, Integer> addTwo = (x, y) -> System.out.println(x + y);
+//        addTwo.accept(3,4);
+//        addTwo(1, 2, (x, y) -> System.out.println(x + y));
+//        addTwo("Node", ".js", (x, y) -> System.out.println(x + y));
+//
+        int a = 0;
+        int b = 1;
+
+
+    }
+    static <T> void addTwo(T a1, T a2, BiConsumer<T, T> c) {
+        c.accept(a1, a2);
     }
 }

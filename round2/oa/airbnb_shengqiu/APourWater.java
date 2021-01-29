@@ -21,10 +21,46 @@ Space: O(n) to store the water
 class APourWater {
     public static void main(String[] args) {
         APourWater sol = new APourWater();
-        int[] heights = {4,5,6,1,3,5,4};
-        sol.pourWater(heights, 5, 14);
+        //int[] heights = {4,5,6,1,3,5,4};
+        int[] heights = {2,1,3,1,4};
+        sol.pourWater2(heights, 2, 7);
     }
 
+    /**
+     * With Boundary, water stacks up on original position
+     * Water will roll back on flat surface
+     */
+    public void pourWater2(int[] heights, int index, int k) {
+        int[] water = new int[heights.length];
+        print(heights, water);
+        for (int i = 0; i < k; i++) {
+            int l = index, r = index, chosen = index, n = heights.length;
+            while (l > 0 && heights[l] + water[l] >= heights[l - 1] + water[l - 1]) {
+                l--;
+                if (heights[l] + water[l] < heights[chosen] + water[chosen]) {
+                    chosen = l;
+                }
+            }
+            if (chosen != index) {
+                water[chosen]++;
+                continue;
+            }
+            while (r < n - 1 && heights[r] + water[r] >= heights[r + 1] + water[r + 1]) {
+                r++;
+                if (heights[r] + water[r] < heights[chosen] + water[chosen]) {
+                    chosen = r;
+                }
+            }
+            water[chosen]++;
+        }
+        print(heights, water);
+    }
+
+    /**
+     * Without Boundary, water overflow on the boundaries
+     * Water will not roll back on flat surface, it will roll over the edge
+     * so if chosen index is at the edges, continue the loop
+     */
     public void pourWater(int[] heights, int index, int k) {
         int[] water = new int[heights.length];
         print(heights, water);

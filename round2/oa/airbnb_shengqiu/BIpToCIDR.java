@@ -29,9 +29,9 @@ Space: O(l) for stringbuilder
 class BIpToCIDR {
     public static void main(String[] args) {
         BIpToCIDR sol = new BIpToCIDR();
-        String ip = "255.255.255.255";
-        System.out.println(sol.ipToCIDR(ip, 10));
-        String ip2 = "255.255.255.7";
+//        String ip = "255.255.255.255";
+//        System.out.println(sol.ipToCIDR(ip, 10));
+        String ip2 = "255.0.0.7";
         System.out.println(sol.ipToCIDR(ip2, 10));
     }
 

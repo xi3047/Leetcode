@@ -136,19 +136,59 @@ class Dijk {
         flights.add(Arrays.asList("A", "C", "250"));
         flights.add(Arrays.asList("C", "D", "200"));
         flights.add(Arrays.asList("A", "D", "500"));
-        System.out.print(sol.findMinCost(flights, "A", "D", 1));
-        System.out.println(sol.getPath());
+        System.out.print(sol.findMinCostDij(flights, "A", "D", 1));
+        //System.out.println(sol.getPath());
+    }
+
+    public int findMinCostDij(List<List<String>> flights, String from, String to, int k) {
+        Map<String, Map<String, Integer>> map = new HashMap<>();
+        for (List<String> flight : flights) {
+            map.putIfAbsent(flight.get(0), new HashMap<>());
+            map.get(flight.get(0)).put(flight.get(1), Integer.parseInt(flight.get(2)));
+        }
+        Queue<Node> pq = new PriorityQueue<>((o1, o2) -> {
+            return Integer.compare(o1.cost, o2.cost);
+        });
+        pq.offer(new Node(0, from, k + 1));
+        while (!pq.isEmpty()) {
+            Node cur = pq.poll();
+
+            if (cur.city.equals(to)) return cur.cost;
+            if (cur.stop > 0) {
+                if (!map.containsKey(cur.city)) continue;
+                Map<String, Integer> neighbors = map.get(cur.city);
+                for (String nextCity : neighbors.keySet()) {
+                    pq.offer(new Node(cur.cost + neighbors.get(nextCity), nextCity, cur.stop - 1));
+                }
+            }
+        }
+        return -1;
+    }
+
+     class Node {
+        int cost;
+        String city;
+        int stop;
+
+        public Node(int cost, String city, int stop) {
+            this.cost = cost;
+            this.city = city;
+            this.stop = stop;
+        }
+
     }
 
     public int findMinCost(List<List<String>> flights, String from, String to, int k) {
         this.map = new HashMap<>();
         this.costMap = new HashMap<>();
         this.stopMap = new HashMap<>();
+        // Initialize Adjacency matrix
         for (List<String> flight : flights) {
             map.putIfAbsent(flight.get(0), new HashMap<>());
             map.putIfAbsent(flight.get(1), new HashMap<>());
             map.get(flight.get(0)).put(flight.get(1), Integer.parseInt(flight.get(2)));
         }
+        // Initialize Cost and Stop Map for every city and  set default value to MAX infinity
         for (String city : map.keySet()) {
             costMap.put(city, Integer.MAX_VALUE);
             stopMap.put(city, Integer.MAX_VALUE);
@@ -157,6 +197,7 @@ class Dijk {
             return Integer.compare(o1.cost, o2.cost);
         });
         pq.offer(new Point(from, 0, 0, null));
+
         while (!pq.isEmpty()) {
             Point curr = pq.poll();
             // notice we do not use a set to close node
@@ -164,19 +205,30 @@ class Dijk {
                 setPath(curr);
                 return curr.cost;
             }
-            if (curr.stop <= k) {
-                for (Map.Entry<String, Integer> entry : map.get(curr.id).entrySet()) {
-                    String next = entry.getKey();
-                    int newCost = curr.cost + entry.getValue();
-                    int newStop = curr.stop + 1;
-                    if (newCost >= costMap.get(next) && newStop >= stopMap.get(next)) continue;
-                    if (newCost < costMap.get(next) && newStop < stopMap.get(next)) {
-                        costMap.put(next, newCost);
-                        stopMap.put(next, newStop);
-                    }
+            if (curr.stop == k + 1) continue;
+
+            for (Map.Entry<String, Integer> entry : map.get(curr.id).entrySet()) {
+                String next = entry.getKey();
+                int newCost = curr.cost + entry.getValue();
+                int newStop = curr.stop + 1;
+
+                if (newCost < costMap.get(next)) {
+                    costMap.put(next, newCost);
                     pq.offer(new Point(next, newCost, newStop, curr));
+                } else if (newStop < stopMap.get(next)) {
+                    stopMap.put(next, newStop);
+                    pq.offer(new Point(next,newCost, newStop, curr));
                 }
+
+//                if (newCost >= costMap.get(next) && newStop >= stopMap.get(next)) continue;
+//                //
+//                if (newCost < costMap.get(next) && newStop < stopMap.get(next)) {
+//                    costMap.put(next, newCost);
+//                    stopMap.put(next, newStop);
+//                }
+//                pq.offer(new Point(next, newCost, newStop, curr));
             }
+
         }
         return -1;
     }
