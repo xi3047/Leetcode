@@ -1,4 +1,4 @@
-package round2.oa.airbnb_shengqiu;/*
+package round2.oa.airbnb;/*
 Assumption:
 1. input is array of integer, represents the height of ground
 2. print the graph after water drop

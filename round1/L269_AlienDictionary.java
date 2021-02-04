@@ -24,7 +24,7 @@ Input:
 
 Output: "wertf"
  */
-public class L269_AlienDictionary {
+public class    L269_AlienDictionary {
     /** Pretty similar to Course Schedule problem (LC 210), the only difference is that
      * we need to build graph by comparing every consecutive pair of strings firstly,
      * and then doing topological sort for the graph to get the result round1_misc.string*/

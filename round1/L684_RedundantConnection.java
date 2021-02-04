@@ -16,9 +16,9 @@ public class L684_RedundantConnection {
             }
         }
 
-        public boolean Union(int u, int v) {
-            int pu = Find(u);
-            int pv = Find(v);
+        public boolean union(int u, int v) {
+            int pu = find(u);
+            int pv = find(v);
             if (pu == pv) return false;
 
             if (ranks_[pv] > ranks_[pu])
@@ -33,7 +33,7 @@ public class L684_RedundantConnection {
             return true;
         }
 
-        public int Find(int u) {
+        public int find(int u) {
             while (parents_[u] != u) {
                 parents_[u] = parents_[parents_[u]];
                 u = parents_[u];
@@ -44,7 +44,7 @@ public class L684_RedundantConnection {
     public int[] findRedundantConnection(int[][] edges) {
         UnionFindSet s = new UnionFindSet(edges.length);
         for (int[] edge : edges)
-            if (!s.Union(edge[0], edge[1])) // true代表他们merge， false代表已经在一个cluster里面
+            if (!s.union(edge[0], edge[1])) // true代表他们merge， false代表已经在一个cluster里面
                 return edge;
         return null;
     }

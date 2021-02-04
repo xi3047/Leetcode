@@ -7,7 +7,7 @@ import java.util.*;
 /**
  * Created by billyxiao on 5/1/19.
  */
-public class L269_AlienDictionaryV3 {
+public class    L269_AlienDictionaryV3 {
     enum Status{
         INIT, PROC, DONE
     }

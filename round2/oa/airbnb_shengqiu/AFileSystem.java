@@ -28,9 +28,9 @@ class Solution {
         fileSystem.watch("/", "on path /");
 
         fileSystem.create("/a/b/c", 2);
-        System.out.println(fileSystem.create("/a/b/d", 3));
-        System.out.println(fileSystem.get("/a/b/c"));
-        System.out.println(fileSystem.get("/a/b/c/d"));
+//        System.out.println(fileSystem.create("/a/b/d", 3));
+//        System.out.println(fileSystem.get("/a/b/c"));
+//        System.out.println(fileSystem.get("/a/b/c/d"));
     }
 }
 

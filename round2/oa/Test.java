@@ -66,6 +66,7 @@ public class Test {
 //
         int a = 0;
         int b = 1;
+        System.out.println("HELLO WORLD");
 
 
     }

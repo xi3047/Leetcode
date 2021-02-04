@@ -102,7 +102,6 @@ public class ASki {
                 this.maxPath = new ArrayList<>(curPath);
                 this.maxScore = score;
             }
-            curPath.remove(curPath.size() - 1);
             return;
         }
         for (Map.Entry<String, Integer> entry : pathMap.get(curr).entrySet()) {
@@ -111,7 +110,8 @@ public class ASki {
             if (newScore <= scoreMap.get(next)) continue;
             scoreMap.put(next, newScore);
             dfs(curPath, ends, next, newScore);
+            curPath.remove(curPath.size() - 1);
         }
-        curPath.remove(curPath.size() - 1);
+
     }
 }
