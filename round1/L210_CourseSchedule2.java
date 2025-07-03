@@ -147,7 +147,9 @@ public class L210_CourseSchedule2 {
     }
     @Test
     public void test() {
-        int[][] courses = {{1, 0}, {2, 0}, {3, 1}, {3, 2}};
+
+        //int[][] courses = {{1, 0}, {2, 0}, {3, 1}, {3, 2}};
+        int[][] courses = {{1, 0}};
         int[] res = findOrder(4, courses);
         for (int i : res) {
             System.out.print(i +" ");

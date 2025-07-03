@@ -60,7 +60,7 @@ public class L10_RegexMatching {
                 return false;
             }
         } else { // *
-            int i = idxS - 1;
+            int i = idxS - 1; // preceding element
             while (i < s.length() && (i < idxS || isMatched(s, i, p, idxP))) {
                 if(dfs(s, i + 1, p, idxP + 2, mem)) {
                     mem[idxS][idxP] = true;
@@ -75,7 +75,6 @@ public class L10_RegexMatching {
 
     private boolean isMatched(String s, int idxS, String p, int idxP) {
         return p.charAt(idxP) == '.' || p.charAt(idxP) == s.charAt(idxS);
-
     }
 
 
@@ -85,16 +84,16 @@ public class L10_RegexMatching {
             return s.length() == 0;
         }
         if (p.length() > 1 && p.charAt(1) == '*') {  // second char is '*'
-            if (isMatch2(s, p.substring(2))) {
+            if (isMatch2(s, p.substring(2))) { // * match 0 ca
                 return true;
             }
             if(s.length() > 0 && (p.charAt(0) == '.' || s.charAt(0) == p.charAt(0))) {
-                return isMatch(s.substring(1), p);
+                return isMatch2(s.substring(1), p);
             }
             return false;
         } else {                                     // second char is not '*'
             if(s.length() > 0 && (p.charAt(0) == '.' || s.charAt(0) == p.charAt(0))) {
-                return isMatch(s.substring(1), p.substring(1));
+                return isMatch2(s.substring(1), p.substring(1));
             }
             return false;
         }
@@ -103,13 +102,20 @@ public class L10_RegexMatching {
     public void test() {
         String s = "xaabyc";
         String p = "xa*b.c";
-        System.out.println(isMatchDFS(s, p));
+        System.out.println(isMatch2(s, p));
     }
 
     @Test
     public void test2() {
         String s = "aab";
         String p = "c*a*b";
+        System.out.println(isMatch2(s, p));
+    }
+
+    @Test
+    public void test3() {
+        String s = "ab";
+        String p = "a*c";
         System.out.println(isMatchDFS(s, p));
     }
 }

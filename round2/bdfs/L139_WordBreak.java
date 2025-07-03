@@ -53,7 +53,7 @@ public class L139_WordBreak {
             if (index == s.length()) {
                 return memo[index] = true;
             }
-            for (int right = index; right <= s.length(); right++) {
+            for (int right = index + 1; right <= s.length(); right++) {
                 String curStr = s.substring(index, right);
                 if (wordDict.contains(curStr)) {
                     if (canBreak(s, wordDict, right, memo)) {
@@ -70,6 +70,6 @@ public class L139_WordBreak {
 
     @Test
     public void test() {
-        System.out.println(new Solution_2().wordBreak("abc", Arrays.asList("ab", "c")));
+        System.out.println(new Solution_2().wordBreak("catsanddog", Arrays.asList("cat", "cats", "sand", "and", "dog")));
     }
 }
