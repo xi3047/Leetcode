@@ -4,11 +4,9 @@ import java.util.Arrays;
 import java.util.Stack;
 
 public class L71_SimplyPath {
-    /*
-       . skip
-       "" skip
-       .. pop
-        push rest
+    /**
+     1) multiple /,  single dot -> skip
+     2) .. -> pop last part if there are things to pop otherwise skip
      */
     public String simplifyPath(String path) {
         Stack<String> stack = new Stack<>();

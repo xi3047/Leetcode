@@ -7,10 +7,8 @@ public class EatingCake {
      * Snowflake tag
      * Given an integer array, 1 is person, 0 is empty space, 2 is cake
      * for every person find the cake closest to him
-     * {1, 1 , 2 , 2}
+     * {0, 0, 1, 0, 1, 2 , 2}
      */
-
-
     public static Map<Integer, Integer> assignCakes(int[] arr) {
         List<Integer> people = new ArrayList<>();
         List<Integer> cakes = new ArrayList<>();
@@ -40,13 +38,11 @@ public class EatingCake {
                     chosenPerson = person;
                 }
             }
-
             if (chosenPerson != -1) {
                 assigned.put(chosenPerson, cake);
                 usedPeople.add(chosenPerson);
             }
         }
-
         return assigned;
     }
 }

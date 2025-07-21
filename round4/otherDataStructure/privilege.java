@@ -3,6 +3,9 @@ package round4.otherDataStructure;
 import java.util.*;
 
 public class privilege {
+    /**
+     *
+     */
     public static List<List<Character>> find(int n, char[][] allowedList, char[][] denyList, int[][] grants) {
         Map<Integer, List<Integer>> graph = new HashMap<>();
         Map<Integer, Integer> parentMap = new HashMap<>();

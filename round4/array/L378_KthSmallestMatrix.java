@@ -12,7 +12,6 @@ public class L378_KthSmallestMatrix {
         }
 
         // go through matrix , pop smallest element till k
-        int min = Integer.MAX_VALUE;
         while (!minHeap.isEmpty()) {
             int[] cur = minHeap.poll();
             k--;
@@ -25,4 +24,6 @@ public class L378_KthSmallestMatrix {
         }
         return -1;
     }
+
+
 }
